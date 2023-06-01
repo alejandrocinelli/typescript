@@ -3,12 +3,9 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/user';
 import dotenv from 'dotenv';
-dotenv.config();
+import { user } from "../interfaces/interfaces";
 
-export interface user {
-    username: string;
-    password: string;
-}
+dotenv.config();
 
 const registerUser = async (req : Request, res : Response) => {
 
@@ -22,6 +19,7 @@ const registerUser = async (req : Request, res : Response) => {
         res.json({msg: "Usuario creado" + newUser.username});
         
     } catch (error) {
+        res.status(500).json({msg: error});
         
     }
 }
@@ -40,6 +38,7 @@ const loginUser = async (req : Request, res : Response) => {
             res.json({ token });
 
     } catch (error) {
+        res.status(500).json({msg: error});
         
     }
 }

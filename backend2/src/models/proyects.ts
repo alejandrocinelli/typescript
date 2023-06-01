@@ -3,7 +3,7 @@ import { Schema, model, Document  , SchemaDefinitionProperty} from 'mongoose';
 interface IProyect extends Document {
     name: string;
     description: string;
-    Deadline : Date;
+    deadline : string;
     status: boolean;
     client : string;
     creator : SchemaDefinitionProperty<string> ;
@@ -19,8 +19,8 @@ const proyectSchema = new Schema <IProyect>({
         type: String,
         trim: true
     },
-    Deadline: {
-        type: Date,
+    deadline: {
+        type: String,
         required: true,
         trim: true
     },
