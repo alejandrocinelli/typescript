@@ -10,11 +10,11 @@ export default class MongoDao {
         this.collection = mongoose.model(collection);
     }
 
-    async create(documentToCreate : string) {
+    async create(documentToCreate : any ) {
+      
         try {
-          
           const createdDocument = await this.collection.create(documentToCreate);
-          
+        
           return createdDocument;
         } catch (err) {
           console.log("Error creating document", err);

@@ -3,7 +3,7 @@ import userMongoDao from "./userMongo.Dao";
 export default class userDaoFactory {
     static instance: any;
     
-    static getDao(db : string){
+    static getDao(db : any){
         switch(db){
             case 'mongo':
                 return userMongoDao.getInstance();

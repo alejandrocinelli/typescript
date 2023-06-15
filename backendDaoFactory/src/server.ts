@@ -1,6 +1,7 @@
 import express , { Application , Request , Response} from 'express';
 import dotenv from "dotenv";
 import connectDb from './config/db';
+import router from './routes/index';
 
 dotenv.config();
 const app : Application = express();
@@ -10,6 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 connectDb();
+
+app.use(router);
 
 app.listen(port, () => {
     console.log(`Servidor en ejecución en http://localhost:${port}`);

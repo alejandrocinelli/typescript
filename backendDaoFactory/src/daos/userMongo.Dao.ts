@@ -1,5 +1,7 @@
-import User from '../models/userModel';
+import {User} from '../models/userModel';
 import MongoDao from './mongo.dao';
+
+let instance : any;
 
 export default class userMongoDao extends MongoDao {
     static instance: any;
@@ -8,9 +10,9 @@ export default class userMongoDao extends MongoDao {
     }
 
     static getInstance() {
-        if (!userMongoDao.instance) {
-            userMongoDao.instance = new userMongoDao();
+        if (!instance) {
+            instance = new userMongoDao();
         }
-        return userMongoDao.instance;
+        return instance;
     }
 }

@@ -10,4 +10,4 @@ const userSchema = new Schema <UserDocument> ({
     password: String
 });
 
-export default model<UserDocument>('User', userSchema);
+export const User = model<UserDocument>('User', userSchema);
